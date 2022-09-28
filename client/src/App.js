@@ -1,9 +1,9 @@
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import MainPage from "./MainPage"
-import NavBar from './Navbar';
 import Supplier from './Supplier';
+import Customer from './Customer';
 
 function App() {
   return (
@@ -12,11 +12,7 @@ function App() {
         <MainPage />
          
       </header>
-      <Router>
-            <Routes>
-              <Route path="/home" element={<Supplier />}/>
-            </Routes>
-         </Router>
+     
     </div>
   );
 }

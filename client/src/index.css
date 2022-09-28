@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+body{
+  width: 100%;
+}
+.main-page-div{
+  width: 100%;
+}
+
 .main-div{
   background-color: rgba(247, 246, 245, 0.996);
   display: flex;
@@ -20,9 +27,30 @@ code {
 }
 .main-div-sub{
   background-color: rgba(34, 185, 185, 0.65);
-  width: auto;
+  width: 20%;
   border: solid greenyellow;
   border-radius: 10px;
+  justify-content: center;
+
+  
+
+}
+
+.link-link{
+  background-color: rgb(242, 246, 244);
+  border: none;
+}
+.main-div-sub-list{
+  width: 90%;
+  height: 100%;
+}
+ 
+.member-list{
+  width: 30%;
+  background-color: blueviolet;
+}
+.member-add-button{
+  display: flex;
 }
 
 a {
@@ -33,4 +61,24 @@ a {
   text-shadow: aqua;
   border: solid orange;
   border-radius: 10px;
+}
+
+.sup-div{
+  display: flex;
+  background-color: gray;
+  width: 100%;
+/*------------- Line -----------------*/
+  background-image: linear-gradient(
+    to right,
+    rgb(47, 21, 193),
+    white 35%,
+    white 65%,
+    rgb(164, 8, 34)
+);
+background-repeat: no-repeat;
+background-size: 100% 2px;
+background-position: 0 center;
+}
+html{
+  width: 100%;
 }

@@ -1,11 +1,12 @@
 import React from "react";
-function NavBar(){
+function Navbar(){
     return(
         <nav className="nav-bar">
-            <a href="/Supplier" className="nav-bar-item">Suppliers</a>
-            <a href="/Vendor" className="nav-bar-item">Vendors</a>
-            <a href="/Customer" className="nav-bar-item">Customers</a> 
+            <a href="/Home" className="nav-bar-item">➡️Home</a>
+            <a href="/Supplier" className="nav-bar-item">➡️Suppliers</a>
+            <a href="/Vendor" className="nav-bar-item">➡️Vendors</a>
+            <a href="/Customer" className="nav-bar-item">➡️Customers</a> 
         </nav>
     )
 }
-export default NavBar
+export default Navbar

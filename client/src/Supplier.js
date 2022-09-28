@@ -1,20 +1,43 @@
 
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Supplierdetail from "./Supplierdetail";
 
-class Supplier extends React.Component{
-    render() {
-        return(
+function Supplier({supplierFo}){
+
+    const [suppDetail, setSuppDetail]=useState([])
+    function getDetails(e){
+        setSuppDetail(e)
+
+    }
+    const supplierList = supplierFo.map((supp)=>{
+
+        
+        return (
             <div>
-                <div>
-                    <h1>Suppliers</h1>
-                    <button>+</button>
-                </div>
-                <div>
-                    <h6>Supplier Sample</h6>
-                </div>
+                <Link onClick={((e)=>{getDetails(e.target.textContent)})} className='link-link'>{supp.name}</Link>
             </div>
         )
-    }
-}
+    })
+   const test = document.getElementsByClassName("link-link")
+   console.log("test",suppDetail)
 
+    function addSupp(){
+        console.log("I was Cliked")
+    }
+    return(
+        <div className="sup-div">
+            <div className="member-list">
+                <div className="member-add-button">
+                    <h1>Suppliers</h1>
+                    <button onClick={addSupp}>Add +</button>
+                </div>
+                <div>
+                    <h6>{supplierList}</h6>
+                </div>
+            </div>
+            <Supplierdetail suppDetail = {suppDetail} supplierFo={supplierFo}/>
+        </div>
+    )
+}
 export default Supplier
