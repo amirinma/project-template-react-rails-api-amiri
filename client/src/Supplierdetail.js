@@ -5,7 +5,7 @@ function Supplierdetail({suppDetail, supplierFo}){
     console.log('heheh', supplierFo)
 
     const suppDet = ()=>{
-    const selectSup = supplierFo.filter((sup)=>sup.name!==suppDetail)
+    const selectSup = supplierFo.filter((sup)=>console.log(sup))
     console.log("bow",selectSup)
         
     }

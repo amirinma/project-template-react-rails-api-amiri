@@ -26,8 +26,8 @@ console.log("inside main",supplierFo)
         <div className="main-page-div">
             
 
-            <SignUp />
-            <Login />
+            {/* <SignUp />
+            <Login /> */}
         <div className="main-div">
             <div className="main-div-sub"><Navbar /></div>
             <Router>

@@ -1,9 +1,13 @@
 
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Supplierdetail from "./Supplierdetail";
 
 function Supplier({supplierFo}){
+
+    const details = useSelector(state => state)
+    console.log("redux", details)
 
     const [suppDetail, setSuppDetail]=useState([])
     function getDetails(e){
