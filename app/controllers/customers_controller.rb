@@ -1,10 +1,10 @@
-class SuppliersController < ApplicationController
+class CustomersController < ApplicationController
     def index
-        supplier = Supplier.all
+        supplier = Customer.all
         render json: supplier
     end
     def show
-        supplier = Supplier.find_by(id: params[:id])
+        supplier = Customer.find_by(id: params[:id])
         if supplier
             render json: supplier, except: [:created_at, :updated_at]
         else
@@ -12,20 +12,20 @@ class SuppliersController < ApplicationController
         end
     end
     def create 
-        supplier = Supplier.create(supplier_params)
+        supplier = Customer.create(customer_params)
         render json: supplier, status: :created 
     end
     def update
-        supplier = Supplier.find_by(id: params[:id])
-        supplier.update(supplier_params)
+        supplier = Customer.find_by(id: params[:id])
+        supplier.update(customer_params)
         render json: supplier
     end
     def destroy
-        supplier = Supplier.find_by(id: params[:id])
+        supplier = Customer.find_by(id: params[:id])
         supplier.destroy
         head :no_content
     end
-    def supplier_params
+    def customer_params
         params.permit(:name, :country)
     end
 end

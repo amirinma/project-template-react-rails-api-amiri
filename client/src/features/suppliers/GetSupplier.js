@@ -1,17 +1,20 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {fetchSuppliers} from "./suppliersSlice"
 import SuppliersList from "./Suppliers";
 
 function GetSuppliers(){
-    const suppliers = useSelector((state)=> state.suppliers)
+    const supplierList = useSelector((state)=> state)
 
+    const dispatch = useDispatch()
 
-    console.log("getSupplier", suppliers)
+    useEffect(()=>{
+        dispatch(fetchSuppliers());
+    }, [dispatch])
 
     return(
-        <div>
-            <h2> Get Supplier</h2>
-            <SuppliersList suppliers={suppliers} />
+        <div className="memeber-detail-parent">
+            <SuppliersList supplierList={supplierList} />
         </div>
     )
 }

@@ -1,34 +1,27 @@
-export function fetchSupplier(){
-    return function(dispatch){
-        console.log("dispatch", dispatch)
-        dispatch({type: "sup/supLoading"});
-        fetch("/suppliers")
-        .then((response)=>response.json())
-        .then((data)=>{dispatch({type: "sup/supLoaded", payload: data})})
-    }
-}
+import { createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 
-const initialState = {
-    suppliers: [], 
-    status: "idle"
-}
-export default function supplierReducer(state = initialState, action){
-    
-    switch(action.type){
-        case "sup/supLoading":
-            return {
-                ...state, 
-                status: "loading",
-            }
-        case "sup/supLoaded":
-            return {
-                ...state, 
-                suppliers: action.payload, 
-                status: "idle",
-            };
-        default:
-            return state;
-    }
-}
+export const fetchSuppliers = createAsyncThunk("suppliers/fetchSuppliers", async()=>{
+    const supplier = ('/suppliers')
+    const resp = await fetch(supplier)
+    const data = await resp.json()
+    return data
+} )
 
-// .then((data)=>{dispatch({type: 'sup/supLoaded', payload: data.suppliers})})
+const supplierSlice = createSlice({
+    name: "suppliers", 
+    initialState: {
+        suppliers: [],
+        status: "idle",
+    },
+    reducers: {
+
+    }, 
+    extraReducers: {
+       [fetchSuppliers.fulfilled](state, action) {
+        state.suppliers = action.payload;
+        state.status = "idle"
+       }
+    }
+})
+
+export default supplierSlice.reducer

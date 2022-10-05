@@ -62,3 +62,5 @@ function SignUp({ setUser }) {
 }
 
 export default SignUp;
+
+// https://github.com/amirinma/react-hooks-redux-thunk-lab/blob/solution/src/features/cats/catsSlice.js

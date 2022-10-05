@@ -3,6 +3,17 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
   get '/suppliers', to: 'suppliers#index'
   get '/suppliers/:id', to: 'suppliers#show'
+  post '/suppliers', to: 'suppliers#create'
+  patch '/suppliers/:id', to: 'suppliers#update'
+  delete '/suppliers/:id', to: 'suppliers#destroy'
+
+  get '/customers', to: 'customers#index'
+  get '/customers/:id', to: 'customers#show'
+  post '/customers', to: 'customers#create'
+  patch '/customers/:id', to: 'customers#update'
+  delete '/customers/:id', to: 'customers#destroy'
+
+
   get '/products', to: 'products#index'
   get '/products/:id', to: 'products#show'
   get '/vendors', to: 'vendors#index'

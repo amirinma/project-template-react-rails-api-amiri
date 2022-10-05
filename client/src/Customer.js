@@ -1,5 +1,5 @@
 import React from "react";
-import Supplierdetail from "./Supplierdetail";
+
 
 class Customer extends React.Component{
     render() {
@@ -14,7 +14,7 @@ class Customer extends React.Component{
                         <h6>Customer Sample</h6>
                     </div>
                 </div>
-                <Supplierdetail />
+             
             </div>
         )
     }
