@@ -31,7 +31,7 @@ function SuppliersList({supplierList = []}){
                 </div>
                 <div>
                     {supplier.map((sup)=>(
-                        <h6 onClick={(e)=>{getSupDetails(e.target.textContent)}}>{sup.name}</h6>
+                        <p onClick={(e)=>{getSupDetails(e.target.textContent)}} className="item-pointer">{sup.name}</p>
                     ))}
                 </div>
             </div>

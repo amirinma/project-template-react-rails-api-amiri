@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Customer from "./Customer";
 import SignUp from "./SignUp";
 import GetSuppliers from './features/suppliers/GetSupplier'
+import Home from "./home";
 
 function Main(){
     const supplier = '/suppliers'
@@ -25,20 +26,18 @@ console.log("inside main",supplierFo)
 
     return (
         <div className="main-page-div">
-            {/* <SignUp />
-            <Login /> */}
+            <div><SignUp /></div>
+            <div><Login /></div>
         <div>Hello</div>
         <div className="main-div">
             <div className="main-div-sub"><Navbar /></div>
             
             <Router>
                 <Routes>
-                    <Route path="/home" element={<Login />}/>
+                    <Route path="/home" element={<Home />}/>
                     <Route path="/Supplier" element={<GetSuppliers />} />
-
-                    {/* <Route path="/Supplier" element={<Supplier supplierFo = {supplierFo} />}/> */}
                     <Route path="/Customer" element={<Customer />}/>
-
+                    {/* <Route path="" */}
                 </Routes>
             </Router>
         </div>
@@ -48,29 +47,3 @@ console.log("inside main",supplierFo)
 
 export default Main
 
-// import React, { useEffect, useState } from "react";
-// import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import SignUp from "./SignUp";
-// import Login from "./Login";
-// import NavBar from "./NavBar";
-// import HomePage from "./Homepage";
-
-// function Main(){
-//     const [user, setUser] = useState(null);
-
-//   useEffect(() => {
-//     // auto-login
-//     fetch("/me").then((r) => {
-//       if (r.ok) {
-//         r.json().then((user) => setUser(user));
-//       }
-//     });
-//   }, []);
-//     return(
-//         <div>
-//             <NavBar />
-//         </div>
-//     )
-// }
-
-// export default Main;
