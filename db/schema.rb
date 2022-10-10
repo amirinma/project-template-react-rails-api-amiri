@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_27_150729) do
+ActiveRecord::Schema.define(version: 2022_10_06_204611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,18 +26,27 @@ ActiveRecord::Schema.define(version: 2022_09_27_150729) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
     t.string "country"
+    t.string "zip_code"
+    t.string "phone_num"
+    t.string "email_add"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
+    t.date "date"
     t.string "name"
-    t.integer "user"
+    t.integer "quantity"
     t.float "price"
     t.bigint "supplier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "bill_num"
+    t.float "total"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
@@ -52,6 +61,12 @@ ActiveRecord::Schema.define(version: 2022_09_27_150729) do
 
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.string "phone_num"
+    t.string "email_add"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "country"

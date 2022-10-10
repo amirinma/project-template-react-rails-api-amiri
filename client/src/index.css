@@ -13,27 +13,25 @@ code {
 }
 
 .nav-bar{
-  background-color: rgb(20, 114, 74);
   padding: 5px;
+  width: 90%;
+  border-radius: 10px;
+  margin: 2px;
 }
 .main-page-div{
   width: 100%;
   height: 100% !important;
-  background-color: brown;
-
 }
 
 .main-div{
-  background-color: rgba(193, 109, 25, 0.996);
   display: flex;
   width: 100%;
   height: 100% !important;
+  background-color: #f0f2f4;
 }
 .main-div-sub{
-  background-color: rgba(34, 185, 185, 0.65);
-  width: 20%;
-  border: solid greenyellow;
-  border-radius: 10px;
+  width: 10%;
+  border: solid #637db76e;
   justify-content: center;
 }
 .item-pointer{
@@ -41,7 +39,6 @@ code {
   cursor: pointer;
   text-align: left;
   margin: 5px;
-  width: 100%;
   font-size: 15px;
   
 }
@@ -55,15 +52,14 @@ code {
 }
  
 .member-list{
-  width: 30vh;
-  background-color: blueviolet;
+  width: 30%;
+  border: #637db76e solid;
+  margin: 0 2px 0 2px;
+  color: #01011d;
 }
-.member-details{
-  background-color: red;
-}
+
 .memeber-detail-parent{
   width: 100%;
-  background-color: yellow;
 }
 .member-add-button{
   display: flex;
@@ -77,25 +73,91 @@ a {
   text-shadow: aqua;
   border: solid orange;
   border-radius: 10px;
+  font-size: medium;
+  text-decoration: none;
 }
 
 .sup-div{
   display: flex;
-  background-color: rgb(60, 38, 138);
   width: 100%;
   height: 100%;
+  float: right;
 /*------------- Line -----------------*/
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     rgb(47, 21, 193),
     white 35%,
     white 65%,
     rgb(164, 8, 34)
-);
+); */
 background-repeat: no-repeat;
 background-size: 100% 2px;
 background-position: 0 center;
 }
 html{
   width: 100%;
+}
+
+/*------------Memeber Details----------------*/
+.parent-member-details{
+  width: 100%;
+}
+.member-details{
+  display: flex;
+  color: #01011d;
+}
+.item-detail-contact{
+  width: 35%;
+  font-size: medium;
+  border: solid;
+  height: 10%;
+  margin-top: 20%;
+}
+
+/* ---------------item table-----------*/
+.pro-table{
+  width: 100%;
+  color: #04043a;
+}
+.pro-table-div{
+  width: 100%;
+}
+.pro-date{
+  width: 15vh;
+  font-size: small;
+  text-align: left;
+}
+.pro-bill{
+  width: 20vh;
+  font-size: small;
+  text-align: left;
+}
+.pro-name{
+  width: 50vh;
+  font-size: small;
+  text-align: left;
+}
+.pro-quantity{
+  width: 15vh;
+  font-size: small;
+  text-align: left;
+}
+.pro-price{
+  width: 15vh;
+  font-size: small;
+  text-align: left;
+}
+.pro-total{
+  width: 20vh;
+  font-size: small;
+  text-align: left;
+}
+tr:hover{
+  background-color: #89a043;
+  border: solid snow;
+}
+th{
+  background-color: rgba(42, 33, 45, 0.533);
+  padding: 5px;
+  box-shadow: rgba(193, 109, 25, 0.996);
 }

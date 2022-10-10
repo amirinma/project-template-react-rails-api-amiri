@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
   get '/products', to: 'products#index'
   get '/products/:id', to: 'products#show'
+  post '/products', to: 'products#create'
+  patch '/products/:id', to: 'products#update'
+  delete '/products/:id', to: 'products#destroy'
+
+
   get '/vendors', to: 'vendors#index'
   get '/vendors/:id', to: 'vendors#show'
   post "/login", to: "sessions#create"

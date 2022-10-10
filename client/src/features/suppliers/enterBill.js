@@ -9,6 +9,7 @@ function EnterBill(){
     const [price, setPrice]=useState('')
     const [total, setTotal]=useState('')
     const [supplierName, setSupplierName]=useState('')
+    const [billDate, setBillDate]=useState('')
 
     const dispatch = useDispatch()
     function hundleSubmit(event){
@@ -19,7 +20,8 @@ function EnterBill(){
             price: price,
             total: total,
             supplier: supplierName,
-            bill_num: billNumber
+            bill_num: billNumber,
+            date: billDate
         }
         
         dispatch(enterBills(addNewSup))
@@ -29,6 +31,8 @@ function EnterBill(){
             <form onSubmit={hundleSubmit}>
                 <label>Supplier Name</label>
                 <input type="text" value = {supplierName} onChange = {(e)=> setSupplierName(e.target.value)} />
+                <label>Date</label>
+                <input type="date" value={billDate} onChange={(e)=>setBillDate(e.target.value)}/>
                 <label>Bill Num:</label>
                 <input type="text" value={billNumber} onChange={(e)=> setBillNumber(e.target.value)}/>
                 <label>Produc</label>
