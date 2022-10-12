@@ -8,9 +8,10 @@ import SignUp from "./SignUp";
 import GetSuppliers from './features/suppliers/GetSupplier'
 import Home from "./home";
 
-function Main(){
+function Main({user, setUser}){
     const supplier = '/suppliers'
     const [supplierFo, setSupplierFo] = useState([])
+    console.log(user)
 
 
 
@@ -19,28 +20,35 @@ function Main(){
         .then((r)=>r.json())
         .then((supply)=> setSupplierFo(supply))
     },[])
-console.log("inside main",supplierFo)
 
-
-
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE" }).then((r) => {
+          if (r.ok) {
+            console.log("before",user)
+            setUser(null);
+            console.log("after",user)
+          }
+        });
+      }
 
     return (
         <div className="main-page-div">
-            <div><SignUp /></div>
-            <div><Login /></div>
-        <div>Hello</div>
-        <div className="main-div">
-            <div className="main-div-sub"><Navbar /></div>
+            <div>
+                <button onClick={handleLogoutClick}>Logout</button>
+            </div>
             
-            <Router>
-                <Routes>
-                    <Route path="/home" element={<Home />}/>
-                    <Route path="/Supplier" element={<GetSuppliers />} />
-                    <Route path="/Customer" element={<Customer />}/>
-                    {/* <Route path="" */}
-                </Routes>
-            </Router>
-        </div>
+            <div className="main-div">
+                <div className="main-div-sub"><Navbar /></div>
+                
+                <Router>
+                    <Routes>
+                        <Route path="/home" element={<Home />}/>
+                        <Route path="/Supplier" element={<GetSuppliers />} />
+                        <Route path="/Customer" element={<Customer />}/>
+                        {/* <Route path="" */}
+                    </Routes>
+                </Router>
+            </div>
         </div>
     )
 }

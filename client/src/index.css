@@ -12,15 +12,32 @@ code {
     monospace;
 }
 
+.sign-in-up{
+  display: flex;
+  justify-content: center;
+}
+.sign-up, .sign-in{
+  width: 10%;
+  margin: 10px;
+  padding: 20px;
+}
+
 .nav-bar{
   padding: 5px;
   width: 90%;
   border-radius: 10px;
   margin: 2px;
 }
-.main-page-div{
-  width: 100%;
+
+.main-page-div-parent{
+  width: 100% !important;
   height: 100% !important;
+}
+
+.main-page-div{
+  width: 100% !important;
+  height: 100vh !important;
+  background-color: red;
 }
 
 .main-div{
@@ -31,7 +48,7 @@ code {
 }
 .main-div-sub{
   width: 10%;
-  border: solid #637db76e;
+  border: solid #2b57b66e;
   justify-content: center;
 }
 .item-pointer{
