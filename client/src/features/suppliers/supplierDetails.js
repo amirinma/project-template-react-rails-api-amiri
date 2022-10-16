@@ -1,15 +1,10 @@
 import React from "react";
+import App from "./app";
 import { useSelector } from "react-redux";
 
 function Supplierdetail({supDetails}){
     const suplist = useSelector((state)=> state.suppliers.suppliers)
-    // const prodlist = suplist.map()
-    
-
-    console.log("Supplier Update Arrow",supDetails)
-    console.log("splist console", suplist)
-   
-    
+  
     const suppDetails = suplist.map((sup)=>{
 
         if (sup.name === supDetails){
@@ -19,25 +14,20 @@ function Supplierdetail({supDetails}){
                         <div className="item-detail">
                             <div className="item-detail-name">
                                 <h3>{sup.name}</h3>
-                                {/* <select name="Action">
-                                    <option>Slect an action</option>
-                                    <option>Enter Bill</option>
-                                    <option>Create Report</option>
-                                </select> */}
                             </div>
                             <div className="item-detail-address">
-                                <h6>Address:</h6>
-                                <p>Street: {sup.street_address}</p>
-                                <p>City: {sup.city}</p>
-                                <p>State: {sup.state}</p>
-                                <p>Zip Code: {sup.zip_code}</p>
-                                <p>Country: {sup.country}</p>
+                                <h4 className="item-detail-add-mem">Address:</h4>
+                                <p className="item-detail-add-mem"><strong>Street:</strong> {sup.street_address}</p>
+                                <p className="item-detail-add-mem"><strong>City:</strong> {sup.city}</p>
+                                <p className="item-detail-add-mem"><strong>State:</strong> {sup.state}</p>
+                                <p className="item-detail-add-mem"><strong>Zip Code:</strong> {sup.zip_code}</p>
+                                <p className="item-detail-add-mem"><strong>Country:</strong> {sup.country}</p>
                             </div>
                         </div>
                         <div className="item-detail-contact">
-                            <h6>Contact: </h6>
-                            <p>Phone: {sup.phone_num}</p>
-                            <p>Email: {sup.email_add}</p>
+                            <h4 className="item-detail-add-mem">Contact: </h4>
+                            <p className="item-detail-add-mem"><strong>Phone:</strong> {sup.phone_num}</p>
+                            <p className="item-detail-add-mem"><strong>Email:</strong> {sup.email_add}</p>
                         </div>
                     </div>
                     <div>

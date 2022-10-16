@@ -67,7 +67,7 @@ code {
   width: 90%;
   height: 100%;
 }
- 
+ /* member and memeber details */
 .member-list{
   width: 30%;
   border: #637db76e solid;
@@ -80,11 +80,48 @@ code {
 }
 .member-add-button{
   display: flex;
+  justify-content: center;
+}
+.member-details{
+  background-color: rgba(225, 232, 236, 0.45);
+}
+.item-detail-name, .item-detail-address,
+.item-detail-contact{
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(214, 209, 209, 0.594);
+  border-radius: 5px;
+  box-shadow: 10px rgb(47, 0, 255);
+  text-align: left;
+}
+.item-detail-name{
+  height: 25% !important;
+  margin-top: 10px;
+}
+.item-detail-add-mem{
+  margin: 0px;
+  padding: 0px;
+}
+.item-detail-contact{
+  width: 35%;
+  font-size: medium;
+}
+.item-detail{
+  width: 35%;
+}
+.member-heading{
+  font-size: medium;
+}
+.member-remove-button{
+  display: flex;
+  background-color: #6d6e6a16;
+  padding: 2px;
+  margin: 2px;
 }
 
 a {
   display: block;
-  background-color: rgb(216, 214, 219);
+  /* background-color: rgb(216, 214, 219); */
   margin: 5px;
   padding: 10px;
   text-shadow: aqua;
@@ -93,7 +130,17 @@ a {
   font-size: medium;
   text-decoration: none;
 }
-
+a:active{
+  background-color: yellow;
+  box-shadow: 5px 5px 5px 5px rgba(193, 109, 25, 0.996);
+  transform: translateY(1px);
+}
+a:focus{
+  background-color: yellow;
+}
+h4{
+  background-color: aquamarine;
+}
 .sup-div{
   display: flex;
   width: 100%;
@@ -123,13 +170,7 @@ html{
   display: flex;
   color: #01011d;
 }
-.item-detail-contact{
-  width: 35%;
-  font-size: medium;
-  border: solid;
-  height: 10%;
-  margin-top: 20%;
-}
+
 
 /* ---------------item table-----------*/
 .pro-table{
@@ -169,12 +210,16 @@ html{
   font-size: small;
   text-align: left;
 }
-tr:hover{
-  background-color: #89a043;
-  border: solid snow;
-}
+
 th{
-  background-color: rgba(42, 33, 45, 0.533);
+  background-color: rgba(42, 33, 45, 0.322);
   padding: 5px;
   box-shadow: rgba(193, 109, 25, 0.996);
+}
+td{
+  padding: 0px 5px 0px 5px;
+}
+tr:hover{
+  background-color: #868c7644;
+  border: solid rgb(200, 177, 177);
 }

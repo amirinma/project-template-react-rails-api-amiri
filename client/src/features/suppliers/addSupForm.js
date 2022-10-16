@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { addSuppliers } from "./suppliersSlice";
+
 
 function AddSupp(e){
     const [newSup, setNewSup]=useState('')
     const [newSupCountry, setNewSupCountry] = useState('')
+    const addSupplier = useSelector((state)=> state.suppliers.suppliers)
     const dispatch = useDispatch()
     function hundleSubmit(event){
         event.preventDefault()
@@ -15,6 +17,7 @@ function AddSupp(e){
         
         dispatch(addSuppliers(addNewSup))
     }
+    console.log("add sup", addSupplier)
 
     return(
         <div>

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect} from "react";
+import { useDispatch, useSelector} from "react-redux";
 import {enterBills} from "./suppliersSlice"
+import {fetchSuppliers} from "./suppliersSlice"
 function EnterBill(){
 
     const [billNumber, setBillNumber]=useState('')
@@ -10,6 +11,8 @@ function EnterBill(){
     const [total, setTotal]=useState('')
     const [supplierName, setSupplierName]=useState('')
     const [billDate, setBillDate]=useState('')
+    const [proCategory, setProCategory]=useState('')
+    const supplierList = useSelector((state)=> state)
 
     const dispatch = useDispatch()
     function hundleSubmit(event){
@@ -21,11 +24,17 @@ function EnterBill(){
             total: total,
             supplier: supplierName,
             bill_num: billNumber,
-            date: billDate
+            date: billDate,
+            pro_category: proCategory
         }
         
         dispatch(enterBills(addNewSup))
     }
+    useEffect(()=>{
+        dispatch(fetchSuppliers());
+    }, [dispatch])
+    const updatedList = supplierList.suppliers.suppliers
+    console.log("category", proCategory)
     return(
         <div>
             <form onSubmit={hundleSubmit}>
@@ -35,6 +44,12 @@ function EnterBill(){
                 <input type="date" value={billDate} onChange={(e)=>setBillDate(e.target.value)}/>
                 <label>Bill Num:</label>
                 <input type="text" value={billNumber} onChange={(e)=> setBillNumber(e.target.value)}/>
+                <label>Product Category</label>
+                <select value={proCategory} onChange={(e)=>setProCategory(e.target.value)}>
+                    <option>AntiVirus</option>
+                    <option>InternetSec</option>
+                    <option>TotalSec</option>
+                </select>
                 <label>Produc</label>
                 <input type="text"value={productName} onChange={(e)=> setProductName(e.target.value)}/>
                 <label>Quantity</label>

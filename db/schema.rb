@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_06_204611) do
+ActiveRecord::Schema.define(version: 2022_10_16_004827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(version: 2022_10_06_204611) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "bill_num"
     t.float "total"
+    t.integer "av_quantity", default: 0
+    t.integer "in_quantity", default: 0
+    t.integer "to_quantity", default: 0
+    t.string "pro_category"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
@@ -67,6 +71,7 @@ ActiveRecord::Schema.define(version: 2022_10_06_204611) do
     t.string "zip_code"
     t.string "phone_num"
     t.string "email_add"
+    t.float "sup_balance", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "country"

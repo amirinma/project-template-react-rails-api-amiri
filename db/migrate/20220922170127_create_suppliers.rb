@@ -8,6 +8,7 @@ class CreateSuppliers < ActiveRecord::Migration[6.1]
       t.string :zip_code
       t.string :phone_num
       t.string :email_add
+      t.float :sup_balance, :default => 0
 
       t.timestamps
     end

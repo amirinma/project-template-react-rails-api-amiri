@@ -13,17 +13,25 @@ class SuppliersController < ApplicationController
     end
     def create 
         supplier = Supplier.create(supplier_params)
-        render json: supplier, status: :created 
+        # byebug
+        render json: supplier, status: :created
+    rescue ActiveRecord::RecordInvalid => e
+        render json: { errors: e.errors.full_messages }, status: :unprocessable_entity
+
     end
     def update
-        supplier = Supplier.find_by(id: params[:id])
+        # supplier = Supplier.find_by(id: params[:id])
+        supplier = Supplier.find_by(name: params[:name])
         supplier.update(supplier_params)
         render json: supplier
     end
     def destroy
+       
         supplier = Supplier.find_by(id: params[:id])
         supplier.destroy
-        head :no_content
+        # head :no_content
+        render json: supplier, status: :ok
+        
     end
     def supplier_params
         params.permit(:name, :country)

@@ -1,45 +1,71 @@
-import { v4 as uuid } from "uuid";
+import { createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 
-// Action Creators
-export const addAuthor = (author) => {
-  return {
-    type: "authors/add",
-    payload: author,
-  };
-};
+export const fetchCustomers = createAsyncThunk("customers/fetchCustomers", async()=>{
+    const supplier = ('/customers')
+    const resp = await fetch(supplier)
+    const data = await resp.json()
+    return data
+} )
 
-export const removeAuthor = (id) => {
-  return {
-    type: "authors/remove",
-    payload: id,
-  };
-};
+export const addCustomers = createAsyncThunk("customers/addCustomers", async(addNewSup)=>{
+    const supplier = '/customers'
+    const config = {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify(addNewSup)
+    }
+    const resp = await fetch(supplier, config)
+    const data = await resp.json()
+    return data
+} )
 
-// Reducers
-const initialState = [];
+export const enterInvoice = createAsyncThunk("products/addProducts", async(addNewProd)=>{
+    const product = '/products'
+    const config = {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify(addNewProd)
+    }
+    const resp = await fetch(product, config)
+    const data = await resp.json()
+    return data
+} )
 
-export default function authorsReducer(state = initialState, action) {
-  switch (action.type) {
-    case "authors/add":
-      return [...state, action.payload];
+export const removeCustomer = createAsyncThunk("customers/removeCustomers")
 
-    case "authors/remove":
-      return state.filter((author) => author.id !== action.payload);
 
-    case "books/add":
-      const existingAuthor = state.find(
-        (author) => author.authorName === action.payload.authorName
-      );
-      if (existingAuthor) {
-        return state;
-      } else {
-        return [
-          ...state,
-          { authorName: action.payload.authorName, id: uuid() },
-        ];
-      }
+const customerSlice = createSlice({
+    name: "customers", 
+    initialState: {
+        customers: [],
+        status: "idle",
+    },
+    reducers: {
+        supplierAdded(state, action){
+            console.log("supplier hoho")
+        }
 
-    default:
-      return state;
-  }
-}
+    }, 
+    extraReducers: {
+       [fetchCustomers.fulfilled](state, action) {
+        state.customers = action.payload;
+        state.status = "idle"
+       }, 
+       [fetchCustomers.pending](state, action) {
+        state.status = "pending"
+       }, 
+       [fetchCustomers.pending](state, action) {
+        state.status = "idle"
+       },
+       [addSuppliers.fulfilled](state, action){
+        state.customers.push(action.payload)
+        state.status = "idle"
+       }
+    }
+})
+
+export default customerSlice.reducer

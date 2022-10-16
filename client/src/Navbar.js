@@ -5,6 +5,7 @@ function Navbar(){
             <a href="/Home" className="nav-bar-item">Home <br></br>&#127968;</a>
             <a href="/Supplier" className="nav-bar-item">Suppliers <br></br>🏭</a>
             <a href="/Customer" className="nav-bar-item">Customers</a> 
+            <a href="/Product" className="nav-bar-item">Products</a>
         </nav>
     )
 }

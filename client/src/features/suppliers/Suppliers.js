@@ -1,37 +1,33 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Supplierdetail from "./supplierDetails";
+import {removeSuppliers} from "./suppliersSlice"
 
 function SuppliersList({supplierList = []}){
     const [supDetails, setSuppDetail] = useState('')
     const supplier = supplierList.suppliers.suppliers
+    const dispatch = useDispatch()
 
     const getSupDetails = (e)=>{
             setSuppDetail(e)     
         }
-    
-    var newWin;
-    function focusPopup(){
-        if(!newWin.closed){
-            newWin.focus();
-        }
+    function removeSup(e){
+        dispatch(removeSuppliers(e))
     }
-    function addSupplier(){
-        window.open('newWindow.js', 'Add Supplier', 'width=200', 'height=200');
-        document.onmousedown=focusPopup;
-        document.onkeyup=focusPopup;
-        document.onmousemove=focusPopup;
-    }
-    
+   
     return(
         <div className="sup-div">
             <div className="member-list">
                 <div className="member-add-button">
-                    <h6>Suppliers List</h6>
-                    <button onClick={addSupplier}>Add +</button>
+                    <p className="member-heading">SUPPLIERS</p>
                 </div>
                 <div>
                     {supplier.map((sup)=>(
-                        <p onClick={(e)=>{getSupDetails(e.target.textContent)}} className="item-pointer">{sup.name}</p>
+                        <div className="member-remove-button">
+                            <button onClick={(e)=>removeSup(sup.id)}>x</button>
+                            <p onClick={(e)=>{getSupDetails(e.target.textContent)}} className="item-pointer">{sup.name}</p>
+                            <p>$ {sup.sup_balance}</p>
+                        </div>
                     ))}
                 </div>
             </div>

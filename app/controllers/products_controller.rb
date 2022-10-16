@@ -13,12 +13,23 @@ class ProductsController < ApplicationController
     end
     def create 
         supplier = Supplier.find_or_create_by(name: params[:supplier])
+        productQ = Product.find_by(pro_category: params[:pro_category])
         product = Product.create(product_params)
         product.supplier_id = supplier.id
-        product.save
-        byebug
-        render json: product, status: :created 
+        supplier.sup_balance += product.total
         
+        if product.pro_category == "AntiVirus"
+            productQ.av_quantity += product.quantity
+        end
+        
+        product.save
+        supplier.save
+        productQ.save
+       
+        render json: product, status: :created 
+    # rescue ActiveRecord::RecordInvalid => e
+    #     render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+
     end
     def update
         product = Product.find_by(id: params[:id])
@@ -31,6 +42,6 @@ class ProductsController < ApplicationController
         head :no_content
     end
     def product_params
-        params.permit(:name, :quantity, :price, :total, :bill_num, :date)
+        params.permit(:name, :quantity, :price, :total, :bill_num, :date, :sup_balance, :pro_category, :av_quantity)
     end
 end

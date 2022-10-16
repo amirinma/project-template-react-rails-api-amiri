@@ -7,6 +7,7 @@ import Customer from "./Customer";
 import SignUp from "./SignUp";
 import GetSuppliers from './features/suppliers/GetSupplier'
 import Home from "./home";
+import DisplayProducts from "./features/products/products";
 
 function Main({user, setUser}){
     const supplier = '/suppliers'
@@ -45,7 +46,7 @@ function Main({user, setUser}){
                         <Route path="/home" element={<Home />}/>
                         <Route path="/Supplier" element={<GetSuppliers />} />
                         <Route path="/Customer" element={<Customer />}/>
-                        {/* <Route path="" */}
+                        <Route path="/product" element={<DisplayProducts/>} />
                     </Routes>
                 </Router>
             </div>

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/suppliers', to: 'suppliers#index'
   get '/suppliers/:id', to: 'suppliers#show'
   post '/suppliers', to: 'suppliers#create'
-  patch '/suppliers/:id', to: 'suppliers#update'
+  # patch '/suppliers/:id', to: 'suppliers#update'
+  patch '/suppliers/:name', to: "suppliers#update"
   delete '/suppliers/:id', to: 'suppliers#destroy'
 
   get '/customers', to: 'customers#index'
