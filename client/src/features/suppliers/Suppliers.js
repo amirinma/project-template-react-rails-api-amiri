@@ -24,9 +24,9 @@ function SuppliersList({supplierList = []}){
                 <div>
                     {supplier.map((sup)=>(
                         <div className="member-remove-button">
-                            <button onClick={(e)=>removeSup(sup.id)}>x</button>
+                            <button className="member-remove-button-x" onClick={(e)=>removeSup(sup.id)}>x</button>
                             <p onClick={(e)=>{getSupDetails(e.target.textContent)}} className="item-pointer">{sup.name}</p>
-                            <p>$ {sup.sup_balance}</p>
+                            <p className="member-list-balance">$ {sup.sup_balance}</p>
                         </div>
                     ))}
                 </div>

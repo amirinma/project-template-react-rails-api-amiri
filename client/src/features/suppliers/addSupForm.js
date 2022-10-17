@@ -12,20 +12,22 @@ function AddSupp(e){
         event.preventDefault()
         const addNewSup = {
             name: newSup,
-            county: newSupCountry
+            country: newSupCountry
         }
         
         dispatch(addSuppliers(addNewSup))
+        setNewSup(''); 
+        setNewSupCountry('')
     }
     console.log("add sup", addSupplier)
 
     return(
         <div>
         <form onSubmit={hundleSubmit}>
-            <p>Please Add Supplier Details Bellow:</p>
+            <p className="form-details-title">Please Add Supplier Details Bellow:</p>
             <label>Supplier Name</label>
             <input type="text" value={newSup} onChange={(e)=> setNewSup(e.target.value)}/>
-            <label>County</label>
+            <label>Country</label>
             <input type="text" value={newSupCountry} onChange={(e)=> setNewSupCountry(e.target.value)}/>
             <input type="submit"/>
         </form>

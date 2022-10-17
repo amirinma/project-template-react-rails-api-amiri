@@ -34,8 +34,9 @@ function Main({user, setUser}){
 
     return (
         <div className="main-page-div">
-            <div>
-                <button onClick={handleLogoutClick}>Logout</button>
+            <div className="logout-element">
+                <p className="company-head-name">CyberDefend Technolgy</p>
+                <button className="logout-element-btn" onClick={handleLogoutClick}>Logout</button>
             </div>
             
             <div className="main-div">

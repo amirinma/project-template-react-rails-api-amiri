@@ -26,14 +26,12 @@ class SuppliersController < ApplicationController
         render json: supplier
     end
     def destroy
-       
         supplier = Supplier.find_by(id: params[:id])
         supplier.destroy
         # head :no_content
         render json: supplier, status: :ok
-        
     end
     def supplier_params
-        params.permit(:name, :country)
+        params.permit(:name, :country, :id)
     end
 end

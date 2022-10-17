@@ -29,6 +29,14 @@ function EnterBill(){
         }
         
         dispatch(enterBills(addNewSup))
+        setBillNumber('');
+        setProductName('');
+        setQuantity('');
+        setPrice('');
+        setTotal('');
+        setSupplierName('');
+        setBillDate('');
+        setProCategory('');
     }
     useEffect(()=>{
         dispatch(fetchSuppliers());
@@ -36,8 +44,9 @@ function EnterBill(){
     const updatedList = supplierList.suppliers.suppliers
     console.log("category", proCategory)
     return(
-        <div>
-            <form onSubmit={hundleSubmit}>
+        <div className="enter-bill-form-parent">
+            <form onSubmit={hundleSubmit} id="enter-bill-form">
+                <p className="form-details-title">Please Enter Purchase Invoice Information Bellow:</p>
                 <label>Supplier Name</label>
                 <input type="text" value = {supplierName} onChange = {(e)=> setSupplierName(e.target.value)} />
                 <label>Date</label>

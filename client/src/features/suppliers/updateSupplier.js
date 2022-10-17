@@ -20,6 +20,7 @@ function UpdateSupp(e){
         
         dispatch(updateSuppliers(updateSuppli))
         console.log("updateSuppli", updateSuppli)
+        setNewSupCountry('');
     }
 
     useEffect(()=>{
@@ -31,9 +32,10 @@ function UpdateSupp(e){
     return(
         <div>
         <form onSubmit={hundleSubmit}>
-            <p>Please Update Supplier Details Bellow:</p>
+            <p className="form-details-title">Please Update Supplier's Information Bellow:</p>
             <label>Supplier Name</label>
             <select value={newSup} onChange={(e) => setNewSup(e.target.value)} >
+                <option>Please Select Supplier</option>
                 {updateSup.map((sup)=>(
                     <option >{sup.name}</option>
                 ))}

@@ -11,7 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.logout-element{
+  background-color: rgb(2, 4, 83);;
+  display: flex;
+}
+.logout-element-btn{
+  background-color: #80bbf6;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  color: rgb(2, 4, 83));
+}
+.company-head-name{
+  font-size: large;
+  margin-left: 15px;
+  width: 90%;
+  text-align: left;
+  color: #80bbf6;
+}
 .sign-in-up{
   display: flex;
   justify-content: center;
@@ -37,19 +54,19 @@ code {
 .main-page-div{
   width: 100% !important;
   height: 100vh !important;
-  background-color: red;
 }
 
 .main-div{
   display: flex;
   width: 100%;
   height: 100% !important;
-  background-color: #f0f2f4;
+  background-color: rgba(77, 104, 227, 0.68);
 }
 .main-div-sub{
   width: 10%;
-  border: solid #2b57b66e;
   justify-content: center;
+  background-color: #29298a;
+  min-width: 110px;
 }
 .item-pointer{
   display: block;
@@ -57,66 +74,39 @@ code {
   text-align: left;
   margin: 5px;
   font-size: 15px;
-  
+  width: 60%;
 }
 .item-pointer:hover{
-  background-color: rgba(250, 235, 215, 0.152);
-  text-shadow: 1px 2px 1px #01011d;
+  color: #1010ea;
 }
 .main-div-sub-list{
   width: 90%;
   height: 100%;
 }
- /* member and memeber details */
-.member-list{
-  width: 30%;
-  border: #637db76e solid;
-  margin: 0 2px 0 2px;
-  color: #01011d;
-}
 
-.memeber-detail-parent{
-  width: 100%;
-}
-.member-add-button{
-  display: flex;
-  justify-content: center;
-}
-.member-details{
-  background-color: rgba(225, 232, 236, 0.45);
-}
+
 .item-detail-name, .item-detail-address,
 .item-detail-contact{
   padding: 5px;
   margin: 5px;
-  background-color: rgba(214, 209, 209, 0.594);
+  background-color: #80bbf6;
   border-radius: 5px;
-  box-shadow: 10px rgb(47, 0, 255);
   text-align: left;
 }
 .item-detail-name{
   height: 25% !important;
-  margin-top: 10px;
+  text-align: center;
 }
 .item-detail-add-mem{
   margin: 0px;
   padding: 0px;
 }
 .item-detail-contact{
-  width: 35%;
   font-size: medium;
+  width: 50%;
 }
 .item-detail{
   width: 35%;
-}
-.member-heading{
-  font-size: medium;
-}
-.member-remove-button{
-  display: flex;
-  background-color: #6d6e6a16;
-  padding: 2px;
-  margin: 2px;
 }
 
 a {
@@ -125,22 +115,21 @@ a {
   margin: 5px;
   padding: 10px;
   text-shadow: aqua;
-  border: solid orange;
+  border: solid rgb(0, 170, 255);
   border-radius: 10px;
   font-size: medium;
   text-decoration: none;
+  background-color: #80bbf6ce;
 }
 a:active{
-  background-color: yellow;
-  box-shadow: 5px 5px 5px 5px rgba(193, 109, 25, 0.996);
+  background-color: rgb(0, 204, 255);
+  box-shadow: 5px 5px 5px 5px rgba(25, 173, 193, 0.996);
   transform: translateY(1px);
 }
 a:focus{
-  background-color: yellow;
+  background-color: rgb(0, 217, 255);
 }
-h4{
-  background-color: aquamarine;
-}
+
 .sup-div{
   display: flex;
   width: 100%;
@@ -160,6 +149,41 @@ background-position: 0 center;
 }
 html{
   width: 100%;
+  min-width: 800px;
+}
+/* ***********Member*********** */
+.member-heading{
+  font-size: large;
+  color: #80bbf6;
+}
+.member-remove-button{
+  display: flex;
+  background-color: #80bbf6;
+  padding: 2px;
+  margin: 2px;
+}
+.member-list-balance{
+  margin: 5px;
+}
+.member-list{
+  width: 35%;
+  background-color: #1d40ab98;
+  color: #01011d;
+}
+
+.memeber-detail-parent{
+  width: 100%;
+}
+.member-add-button{
+  display: flex;
+  justify-content: center;
+}
+.member-details{
+  background-color: rgba(59, 90, 229, 0.422);
+}
+
+.member-list-name{
+  background-color: #29298a;
 }
 
 /*------------Memeber Details----------------*/
@@ -169,6 +193,16 @@ html{
 .member-details{
   display: flex;
   color: #01011d;
+}
+.member-remove-button-x{
+  padding: 5px;
+  margin: 5px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+.member-remove-button-x:hover{
+  background-color: red;
 }
 
 
@@ -212,14 +246,80 @@ html{
 }
 
 th{
-  background-color: rgba(42, 33, 45, 0.322);
+  background-color: #29298a;
   padding: 5px;
-  box-shadow: rgba(193, 109, 25, 0.996);
+  color: #80bbf6;
 }
 td{
   padding: 0px 5px 0px 5px;
 }
 tr:hover{
-  background-color: #868c7644;
+  background-color: #80bbf6;
   border: solid rgb(200, 177, 177);
+}
+
+/* Home Page Style */
+.home-page-elements-parent{
+  width: 100%;
+}
+
+.home-page-elements{
+  background-color: #e5d4eb51;
+  height: 98%;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.hom-nav-bar{
+  background-color: #0088ff;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 40px;
+  width: 130px;
+  border-top: #e0b114;
+  box-shadow: 0 5px black;
+  cursor: pointer;
+}
+.hom-nav-bar:hover{
+  background-color: rgb(0, 217, 255);
+}
+.hom-nav-bar:active{
+  box-shadow: 0 5px rebeccapurple;
+  transform: translateY(4px);
+}
+
+input{
+  background-color: #9be5e10a;
+  border-radius: 5px;
+  height: 30px;
+}
+label{
+  font-size: medium;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+select{
+  background-color: #9be5e10a;
+  border-radius: 5px;
+  height: 30px;
+}
+.form-details-title{
+  font-size: medium;
+  font-style: italic;
+}
+
+/* *********** Forms************* */
+.enter-bill-form-parent{
+  background-color: #0088ff;
+  text-align: center;
+  display: block;
+  justify-content: center;
+  
+}
+#enter-bill-form{
+  margin: 10px;
+  width: 50%;
+  background-color: #d8d6cc1c;
+  justify-content: center;
+
 }

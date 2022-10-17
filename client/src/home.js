@@ -6,14 +6,8 @@ import EnterBill from "./features/suppliers/enterBill";
 
 function Home(){
     return(
-        <div>
+        <div className="home-page-elements-parent">
             <HomePageDet />
-            {/* < HomePageDet /> */}
-            {/* <Router>
-                <Routes>
-                    <Route path="add-sup" element={<AddSupp />}/>
-                </Routes>
-            </Router> */}
         </div>
 
         

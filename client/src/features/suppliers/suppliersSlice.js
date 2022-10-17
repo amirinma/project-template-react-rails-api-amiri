@@ -24,7 +24,7 @@ export const addSuppliers = createAsyncThunk("suppliers/addSuppliers", async(add
 
 export const removeSuppliers = createAsyncThunk("suppliers/removeSuppliers", async(removeSup)=>{
     console.log("removed", removeSup)
-    const supplier = `/suppliers/${removeSup.name}`
+    const supplier = `/suppliers/${removeSup}`
     const config = {
         method: "DELETE", 
         headers: {

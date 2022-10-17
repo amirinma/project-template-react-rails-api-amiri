@@ -13,7 +13,7 @@ function HomePageDet(){
 
 
     return(
-        <>
+        <div className="home-page-elements">
             <nav>
                 <button name="addSup" className="hom-nav-bar" onClick={addSupplierForm}>Add Supplier</button>
                 <button name="updateSup" className="hom-nav-bar" onClick={addSupplierForm}>Update Supplier</button>
@@ -26,7 +26,7 @@ function HomePageDet(){
                 {display === "updateSup" ? <h1>{<UpdateSupp />}</h1>: null}
                 {display === "entBill" ? <h1>{<EnterBill />}</h1>: null}
             </div>
-        </>
+        </div>
     )
 }
 
