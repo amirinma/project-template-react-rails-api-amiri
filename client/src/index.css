@@ -323,3 +323,48 @@ select{
   justify-content: center;
 
 }
+/* **************Sign in/up ************** */
+.sign-in-up{
+  display: block;
+  max-width: 500px;
+  justify-content: center;
+  min-height: 500px;
+  text-align: center;
+}
+.sign-in-up-btn{
+  padding: 5px;
+  margin: 10px;
+  width: 70px;
+}
+.sign-in-up-form-title{
+  padding: 10px;
+}
+.sign-in-up-form-lbl{
+  width: 35%;
+}
+.sign-in-up-form-input{
+  margin: 10px;
+  width: 50%;
+}
+.sign-in-up-form-input:focus{
+  background-color: #fff70050;
+}
+.login-form-parent, .signUp-form-parent{
+  display: block;
+  width: 80%;
+  background-color: #e0fbff9b;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+.sign-in-up-form-btn{
+  padding: 5px;
+  margin: 5px;
+}
+.login-form{
+  display: inherit;
+}
+.App{
+  display: flex;
+  justify-content: center;
+}
