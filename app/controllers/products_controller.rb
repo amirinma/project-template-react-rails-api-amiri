@@ -14,14 +14,16 @@ class ProductsController < ApplicationController
     def create 
         supplier = Supplier.find_or_create_by(name: params[:supplier])
         productQ = Product.find_by(pro_category: params[:pro_category])
+        
         product = Product.create(product_params)
+       
         product.supplier_id = supplier.id
         supplier.sup_balance += product.total
         
         if product.pro_category == "AntiVirus"
-            productQ.av_quantity += product.quantity
+            product.av_quantity += productQ.av_quantity
         end
-        
+        byebug
         product.save
         supplier.save
         productQ.save
