@@ -21,6 +21,9 @@ function SignUp({ setUser }) {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
+      setUsername("")
+      setPassword("")
+      setPasswordConfirmation("")
     });
     console.log(username)
     console.log(password)

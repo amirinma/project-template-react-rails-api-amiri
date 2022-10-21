@@ -356,6 +356,7 @@ select{
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  height: 300px;
 }
 .sign-in-up-form-btn{
   padding: 5px;
@@ -367,4 +368,13 @@ select{
 .App{
   display: flex;
   justify-content: center;
+}
+.sign-in-up-btn-parent{
+  background-color: #2d6ba2;
+  display: flex;
+  justify-content: center;
+  width: 70vh;
+}
+.error-msg{
+  color: #2d6ba2;
 }

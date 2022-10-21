@@ -1,5 +1,5 @@
 
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './App.css';
 import HomeLogin from './homeLogin';
@@ -18,9 +18,13 @@ function App() {
   },[]);
 
   return (
-    <div className="App">
-      <HomeLogin user={user} setUser={setUser}/>
-    </div>
+    
+      
+      <div className="App">
+        <HomeLogin user={user} setUser={setUser}/>
+      </div>
+    
+
   );
 }
 

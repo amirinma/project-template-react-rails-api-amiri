@@ -1,9 +1,12 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login({ setUser }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-  
+    const [errors, setErrors] = useState([]);
+    const er = []
+    const navigate = useNavigate()
     function handleSubmit(e) {
       e.preventDefault();
       fetch("/login", {
@@ -15,10 +18,23 @@ function Login({ setUser }) {
       }).then((r) => {
         if (r.ok) {
           r.json().then((user) => setUser(user));
+          navigate("/home")
+        } else{
+          r.json().then((data)=>{
+            if(data.error){
+              setErrors([...data.error])
+            }else{
+              setUser(data)
+            }
+          })
         }
       });
+      setUsername("")
+      setPassword("")
+      setTimeout(()=>{setErrors([])}, 3000)
     }
-                                                  
+           
+    console.log("errorst",errors)
     return (
       <div className="login-form-parent">
         <form onSubmit={handleSubmit} className="login-form">
@@ -42,6 +58,7 @@ function Login({ setUser }) {
             className="sign-in-up-form-input"
           /> <br></br>
           <button type="submit" className="sign-in-up-form-btn">Login</button>
+          <p className="error-msg">{errors}</p>
         </form>
       </div>
     );

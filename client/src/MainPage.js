@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // import Supplier from "./Supplier";
 import Navbar from "./Navbar";
 import Login from "./Login";
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes, useNavigate} from 'react-router-dom'
 import Customer from "./Customer";
 import SignUp from "./SignUp";
 import GetSuppliers from './features/suppliers/GetSupplier'
@@ -12,9 +12,6 @@ import DisplayProducts from "./features/products/products";
 function Main({user, setUser}){
     const supplier = '/suppliers'
     const [supplierFo, setSupplierFo] = useState([])
-    console.log(user)
-
-
 
     useEffect(()=>{
         fetch(supplier)
@@ -25,9 +22,7 @@ function Main({user, setUser}){
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
-            console.log("before",user)
             setUser(null);
-            console.log("after",user)
           }
         });
       }
